@@ -1,19 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-// プレイヤーのリスポーン管理を行う
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [Header("リスポーン設定")]
-    [Tooltip("プレイヤーのプレハブ (0=P1, 1=P2)")]
     public GameObject[] playerPrefabs;
-
-    [Tooltip("リスポーン地点")]
     public Transform[] respawnPoints;
-
-    [Tooltip("リスポーンまでの待機時間")]
     public float respawnDelay = 1f;
 
     private void Awake()
@@ -30,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer(int playerID)
     {
+        // 这里的逻辑有点暴力，后面如果加了复杂的转场可能得重写
         StartCoroutine(RespawnCoroutine(playerID));
     }
 

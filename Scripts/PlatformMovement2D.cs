@@ -1,13 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// プラットフォームを複数のポイント間で巡回移動させる
 public class PlatformMovement2D : MonoBehaviour
 {
-    [Header("移動ポイント")]
     public List<Vector2> points = new();
 
-    [Header("移動速度")]
     public float moveSpeed = 5f;
 
     private int currentPointIndex = 0;
@@ -31,6 +28,7 @@ public class PlatformMovement2D : MonoBehaviour
 
     private void MoveToPoint(Vector2 point)
     {
+        // 暂时先用MoveTowards，也许以后该改成用DOTween来做平滑移动
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, point, step);
 

@@ -2,12 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
-// シーンごとのBGMを管理する
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
 
-    [Header("BGM設定")]
     public AudioClip scene00Music;
     public AudioClip scene01To05Music;
     public AudioClip scene06To07Music;
@@ -63,6 +61,7 @@ public class MusicManager : MonoBehaviour
         else if (sceneName == "06" || sceneName == "07") newMusic = scene06To07Music;
         else newMusic = scene01To05Music;
 
+        // TODO: 切背景音乐的时候最好加个淡入淡出，现在太硬了
         ChangeMusic(newMusic);
     }
 

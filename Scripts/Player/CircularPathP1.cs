@@ -1,18 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-// P1がRT入力でP2を一定半径で円運動させる
 public class CircularPathP1 : MonoBehaviour
 {
-    [Header("ターゲット")]
     public Transform targetPTwo;
 
-    [Header("基本設定")]
     public float speed = 1f;
     public float activationDistance = 2.5f; // 拘束開始の最小距離
     public float maxGrabDistance = 5f;    // 拘束維持の最大距離
 
-    [Header("失敗時の揺れ")]
     public float shakeMagnitude = 0.1f;
     public float shakeDuration = 0.2f;
 
@@ -261,6 +257,7 @@ public class CircularPathP1 : MonoBehaviour
     // エラー時のシェイク演出
     private IEnumerator ShakeEffect()
     {
+        // TODO: 震动效果有点太夸张了，暂时先调小点，等测试反馈再说
         if (isShaking) yield break;
 
         isShaking = true;

@@ -8,12 +8,10 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce = 5f;
     public int maxJumps = 2;
 
-    [Header("地面判定")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
-    [Header("側面判定")]
     [SerializeField] private Transform leftCheck;
     [SerializeField] private Transform rightCheck;
     [SerializeField] private float sideCheckRadius = 0.15f;
@@ -74,6 +72,7 @@ public class PlayerMove : MonoBehaviour
         // ジャンプ
         if (Input.GetButtonDown("JoystickA_P1"))
         {
+            // TODO: 考虑把跳跃手感再调得顺滑一点，现在还是有点僵硬
             if (jumpCount < maxJumps)
             {
                 Jump();
